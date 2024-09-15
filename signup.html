@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login page</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <section id="Signup">
+      <div id="signupPageImg">
+        <img src="asset\loginpageimg.svg" alt="img" />
+      </div>
+
+      <!-- login form -->
+      <form id="signupPageDetail">
+        <!-- top-text -->
+        <div class="text">
+          <h2>Sign-up</h2>
+          <p>Sign-up to join.</p>
+        </div>
+
+        <!-- input-field -->
+        <div class="input">
+          <h3>name <span>*</span></h3>
+          <input class="input-field" type="Your-Name" placeholder="zxcvbnm" />
+          <h3>Email ID <span>*</span></h3>
+          <input class="input-field" type="email" placeholder="abc@gmail.com" />
+          <h3>Password <span>*</span></h3>
+          <input class="input-field" type="password" placeholder="password" />
+          <br />
+          <button class="signupBtn" type="button" onclick="signup()">
+            Sign-up
+          </button>
+          <br />
+          <button class="googleBtn">
+            <img src="asset\google.png" alt="google logo" />
+            Sign up with Google
+          </button>
+        </div>
+
+        <!-- bottomtext -->
+        <div class="bottomText">
+          <p>Have an account? <a href="index.html">login?</a></p>
+        </div>
+      </form>
+    </section>
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,247 @@
+
+body{
+  font-family: Inter, sans-serif
+}
+#Login {
+  display: flex;
+}
+#loginPageImg {
+  flex: 1;
+  width: 510px;
+  height: 529px;
+  left: 120px;
+  justify-content: center;
+  justify-self: center;
+  display: flex;
+  
+}
+#loginPageDetail {
+  flex: 1;
+  width: 440px;
+  height: 512px;
+  top: 255.5px;
+  left: 793px;
+  gap: 64px;
+  opacity: 0px;
+
+
+}
+#loginPageDetail >.text > h2 {
+  width: 87px;
+  height: 38px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38.4px;
+  text-align: left;
+}
+#loginPageDetail >.text > p {
+  width: 240px;
+  height: 19px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+  text-align: left;
+
+}
+#loginPageDetail >.input > h3 {
+    margin: 0;
+    margin-bottom: 4px;
+    padding-top: 10px;
+}
+#loginPageDetail >.input > h3 > span {
+  color: red;
+}
+.input >.input-field{
+  border-radius: 8px;
+  border: 1px solid black;
+  padding: 0px 10px;
+  margin-bottom: 10px;
+  width: 440px;
+  height: 43px;
+
+}
+.input >.loginBtn {
+  padding: 4px 50px 4px 50px;
+  margin: 0;
+  border-radius: 100px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background-color: rgb(243, 189, 0);
+  width: 465px;
+  height: 43px;
+}
+.input >.googleBtn > img {
+  height: 13px;
+}
+.input >.googleBtn {
+  padding: 5px 25px 5px 25px;
+  margin: 0;
+  border-radius: 100px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  background-color: white;
+  width: 465px;
+  height: 43px;
+}
+#loginPageDetail >.bottomText > p{
+  width: 465px;
+  justify-content: center;
+  display: flex;
+  padding-top: 45px;
+}
+/*  */
+#Signup {
+  display: flex;
+}
+#signupPageImg {
+  flex: 1;
+  width: 510px;
+  height: 529px;
+  left: 120px;
+  justify-content: center;
+  justify-self: center;
+  display: flex;
+  
+}
+#signupPageDetail {
+  flex: 1;
+  width: 440px;
+  height: 512px;
+  top: 255.5px;
+  left: 793px;
+  gap: 64px;
+  opacity: 0px;
+
+
+}
+#signupPageDetail >.text > h2 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 38.4px;
+  text-align: left;
+}
+#signupPageDetail >.text > p {
+  width: 240px;
+  height: 19px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+  text-align: left;
+
+}
+#signupPageDetail >.input > h3 {
+  margin: 0;
+  margin-bottom: 4px;
+  padding-top: 10px;
+}
+#signupPageDetail >.input > h3 > span {
+color: red;
+}
+.input >.input-field{
+border-radius: 8px;
+border: 1px solid black;
+padding: 0px 10px;
+margin-bottom: 10px;
+width: 440px;
+height: 43px;
+
+}
+.input >.signupBtn {
+padding: 4px 50px 4px 50px;
+margin: 0;
+border-radius: 100px;
+border: 1px solid black;
+margin-bottom: 10px;
+margin-top: 10px;
+background-color: rgb(243, 189, 0);
+width: 465px;
+height: 43px;
+}
+.input >.googleBtn > img {
+height: 13px;
+}
+.input >.googleBtn {
+padding: 5px 25px 5px 25px;
+margin: 0;
+border-radius: 100px;
+border: 1px solid black;
+margin-bottom: 10px;
+margin-top: 10px;
+background-color: white;
+width: 465px;
+height: 43px;
+}
+#signupPageDetail >.bottomText > p{
+  width: 465px;
+  justify-content: center;
+  display: flex;
+  padding-top: 45px;
+}
+
+                                  /* dashboard */
+
+#head{
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 00px 16px 80px;
+}
+#head > #techpathshala-logo{
+  flex: 1;
+}
+#head > #profile-info{
+  flex: 1;
+}
+#profile-info{
+  /* display: flex; */
+  display: inline-flex;
+  justify-content: space-evenly;
+  max-width: 269px;
+}
+#profile-name{
+  margin: 0px;
+  padding-top: 10px;
+}
+
+#dasboard-box-container{
+  display: flex;
+  justify-content: center;
+}
+#dasboard-box{
+  border-radius: 10px;
+  box-shadow: 0 20px 40px #a9a9a9;
+}
+#dasboard-img{
+  padding: 25px;
+}
+#catchyline{
+  display: grid;
+  justify-content: center;
+  text-align: center;
+}
+#catchyline > h2{
+  margin: 0px;
+}
+#catchyline > p{
+  margin: 0px;
+}
+#startButton{
+ 
+  display: flex;
+  justify-content: center;
+}
+#startButton>button{
+  padding: 8px 160px;
+  border-radius: 50px;
+  border: none;
+  background-color: #f3bd00;
+  margin: 10px 0;
+}
+
+/* Question  */
+
+#question-counter>h2{
+  font-size: 61px;
+  margin: 0px;
+}
