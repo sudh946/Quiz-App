@@ -91,7 +91,7 @@ body{
   display: flex;
   padding-top: 45px;
 }
-/*  */
+/* sign up */
 #Signup {
   display: flex;
 }
@@ -241,7 +241,30 @@ height: 43px;
 
 /* Question  */
 
+
 #question-counter>h2{
   font-size: 61px;
   margin: 0px;
+  padding-left: 15px;
+}
+#progress-bar{
+  position: relative;
+  border-radius: 50px;
+  background-color: rgb(235,235,240);
+  height: 16px;
+  z-index: 1;
+  margin: 24px;
+}
+#progress-bar>#progress{
+  width: 10%;
+  position: absolute;
+  background-color: #f3bd00;
+  border-radius: 50px;
+  height: 16px  ;
+  z-index: 2;
+
+}
+#question-wrapper >h3{
+  font-size: 40px;
+  padding-left: 20px;
 }
