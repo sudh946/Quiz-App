@@ -268,3 +268,29 @@ height: 43px;
   font-size: 40px;
   padding-left: 20px;
 }
+#question-wrapper > ol{
+  list-style: none;
+}
+
+/* radio option */
+
+input[type="radio"]{
+  visibility: hidden;
+  
+}
+
+.Options {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  gap: 100px;
+}
+
+.Options label:hover{
+  background-color: #891313;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
