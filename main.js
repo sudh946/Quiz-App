@@ -1,6 +1,6 @@
 // question
 
-const quiz = [
+var quiz = [
   {
     question: "What does HTML stand for?",
     options: {
@@ -422,4 +422,113 @@ profileName.innerText = profile.name;
 
       // question display 
 
+let chooseQuestion = [];
+let indexQuestion = 0;
+
+
+
+startQuize();
+
+function displayQuestion() {
+  document.getElementById("asked-question").innerText = indexQuestion + 1 + ". " + chooseQuestion[indexQuestion].question;
+  document.getElementById("opt1").innerText = chooseQuestion[indexQuestion].options["1"];
+  document.getElementById("opt2").innerText = chooseQuestion[indexQuestion].options["2"];
+  document.getElementById("opt3").innerText = chooseQuestion[indexQuestion].options["3"];
+  document.getElementById("opt4").innerText = chooseQuestion[indexQuestion].options["4"];
   
+  document.getElementById("option1").innerText = chooseQuestion[indexQuestion].options["1"];
+  document.getElementById("option2").innerText = chooseQuestion[indexQuestion].options["2"];
+  document.getElementById("option3").innerText = chooseQuestion[indexQuestion].options["3"];
+  document.getElementById("option4").innerText = chooseQuestion[indexQuestion].options["4"];
+
+  document.getElementById("count").innerText = indexQuestion + 1;
+
+  // progress bar
+
+  let progress = document.getElementById("progress");
+  let progressWidth = (document.getElementById("count").innerText /10) * 100;
+  progress.style.width = progressWidth + "%";
+
+  //set options to unchecked
+  let selectRadio = document.querySelector("[name='option']:checked");
+  if (selectRadio){
+    selectRadio.checked = false;
+  }
+
+  //set choosed answer
+  if (chooseQuestion[indexQuestion].choosedAnswer) {
+    let choosedAnswer = chooseQuestion[indexQuestion].choosedAnswer;
+    choosedAnswer = choosedAnswer.replaceAll("'","\\'");
+    document.querySelector(
+      "[name='options'][value='" + choosedAnswer +"']"
+    ).checked = true;
+    
+  }
+
+}
+
+function startQuize(){
+  chooseQuestion = quiz.sort(()=> 0.5 - Math.random()).slice(0,10);
+  displayQuestion();
+}
+
+console.log(chooseQuestion);
+let questionAsked = JSON.stringify(chooseQuestion);
+localStorage.setItem("questionAsked", questionAsked);
+
+function choosedAnswer(optionIndex){
+  chooseQuestion[indexQuestion]["choosedAnswer"] = chooseQuestion[indexQuestion].options[optionIndex];
+}
+
+function next(){
+  if (indexQuestion == chooseQuestion.length - 1) {
+    Submit();
+    
+    return;
+    
+  }
+  indexQuestion++;
+  displayQuestion();
+
+  document.getElementById("previous").style = "display:block"
+}
+
+function previous(){
+  if (indexQuestion == 0) {
+    return;
+    
+  }
+  indexQuestion--;
+  displayQuestion();
+  if (indexQuestion == 0) {
+      document.getElementById("previous").style="display:none";
+  }
+}
+
+function Submit(){
+  let score = 0;
+  for (let i = 0; i < chooseQuestions.length; i++) {
+      if (chooseQuestions[i].choosedAnswer == chooseQuestions[i].answer) {
+          score +=10;
+      }
+      
+  }
+
+  var userTests = JSON.parse(localStorage.getItem("userTests")) ||[];
+  let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+  var userTests ={
+      Questions: chooseQuestions,
+      score: score,
+      name: loggedInUser[0].name,
+      email: loggedInUser[0].email,
+  };
+
+  userTests.push(userTests);
+  let stringarr = JSON.stringify(userTests);
+  localStorage.setItem("userTests",stringarr);
+
+  window.location ="scoreboard.html";
+}
+console.log(quiz);
+
