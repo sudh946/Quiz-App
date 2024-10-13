@@ -340,13 +340,65 @@ input[type="radio"]:checked + label {
 input[type="radio"]:checked + label:active{
 background-color: white;
 }
- /* #previous {
-  flex: 1;
-  border: 0px;
-    background-color: white;
+ #previous {
+  display: none;
 }
-#next   {
+/* #next   {
   flex: 1;
   border: 0px;
     background-color: white;
 } */
+
+/* scoreboard */
+
+#rank{
+  display: grid;
+  justify-content: center;
+}
+#rank > h2{
+  margin: 0px;
+}
+#rank > p{
+  justify-self: center;
+  margin: 0px;
+}
+/* container */
+#rank-holder{
+  display: flex;
+  justify-content: center;
+}
+/* image */
+#ndRank{
+  height: 140px;
+  width: 140px;
+}
+#stRank{
+  height: 140px;
+  width: 140px;
+}
+#rdRank{
+  height: 140px;
+  width: 140px;
+}
+/* rectangle */
+#nd-rank{
+  height: 492px;
+  width: 210px;
+  top: 314px;
+  left: 385px;
+  position: absolute;
+}
+#st-rank{
+  height: 552px;
+  width: 210px;
+  top: 183px;
+  left: 615px;
+  position: absolute;
+}
+#rd-rank{
+  height: 485px;
+  width: 210px;
+  top: 367px;
+  left: 845px;
+  position: absolute;
+}

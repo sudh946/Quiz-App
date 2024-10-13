@@ -480,6 +480,8 @@ function choosedAnswer(optionIndex){
   chooseQuestion[indexQuestion]["choosedAnswer"] = chooseQuestion[indexQuestion].options[optionIndex];
 }
 
+
+
 function next(){
   if (indexQuestion == chooseQuestion.length - 1) {
     Submit();
@@ -496,10 +498,12 @@ function next(){
 function previous(){
   if (indexQuestion == 0) {
     return;
-    
+
   }
   indexQuestion--;
   displayQuestion();
+  
+  
   if (indexQuestion == 0) {
       document.getElementById("previous").style="display:none";
   }
@@ -531,4 +535,6 @@ function Submit(){
   window.location ="scoreboard.html";
 }
 console.log(quiz);
+
+
 
