@@ -351,54 +351,247 @@ background-color: white;
 
 /* scoreboard */
 
-#rank{
-  display: grid;
-  justify-content: center;
-}
-#rank > h2{
-  margin: 0px;
-}
-#rank > p{
-  justify-self: center;
-  margin: 0px;
-}
-/* container */
 #rank-holder{
   display: flex;
   justify-content: center;
 }
-/* image */
-#ndRank{
-  height: 140px;
+#stImage{
   width: 140px;
-}
-#stRank{
   height: 140px;
+  margin-left: 29px;
+  margin-bottom: -40px;
   width: 140px;
+/* height: 140px; */
+  top: 246px;
+  left: 650px;
+  gap: 0px;
+  border-radius: 50%;
+  border: 8px solid;
+  opacity: 0px;
+  border-color:#f3bd00;
+
 }
-#rdRank{
+#rdImage{
+  width: 140px;
   height: 140px;
-  width: 140px;
+  margin-left: 30px;
+  margin-bottom: -40px;
+  top: 246px;
+  left: 650px;
+  gap: 0px;
+  border-radius: 50%;
+  border: 8px solid;
+  opacity: 0px;
+  margin-top: -20px;
 }
-/* rectangle */
-#nd-rank{
+#ndImage{
+  width: 140px;
+  height: 140px;
+  top: 314px;
+  left: 420px;
+  border: 8px;
+  margin-left: 30px;
+  margin-bottom: -40px;
+  top: 246px;
+  left: 650px;
+  gap: 0px;
+  border-radius: 50%;
+  border: 8px solid;
+  opacity: 0px;
+  margin-top: -70px;
+}
+#ndPlace{
   height: 492px;
   width: 210px;
   top: 314px;
   left: 385px;
-  position: absolute;
+  /* position:absolute; */
+  /* background: #F4CE4A; */
+
 }
-#st-rank{
+#ndPlace>h1{
+  margin-left: 45px;
+  padding: 50px;
+}
+
+#stPlace{
   height: 552px;
   width: 210px;
   top: 183px;
   left: 615px;
-  position: absolute;
+  display: block;
+
+  /* position:absolute; */
+  /* background-color: #f3bd00; */
 }
-#rd-rank{
+#rdPlace{
   height: 485px;
   width: 210px;
   top: 367px;
   left: 845px;
-  position: absolute;
+  /* position:absolute; */
+  /* background-color:#f7e296; */
 }
+
+#rdPlace>h1{
+  margin-left: 95px;
+  padding-top: 80px;
+}
+#crown{
+  width: 76px;
+  height: 76px;
+  top: 183px;
+  left: 682px;
+  margin-bottom: -30px;
+  padding-left: 69px;
+  z-index: 1;
+  padding-bottom: 17px;
+
+}
+
+#second{
+  background-color: #F4CE4A;
+  height: auto;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+  margin: 0px;
+}
+#name2{
+  background-color: #F4CE4A;
+  height: 419px;
+  /* border-top-left-radius: 16px;
+  border-top-right-radius: 16px; */
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 50px;
+  margin: 0px;
+}
+#first{
+  height: auto;
+  background-color: #f3bd00;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  display: flex;
+  justify-content: center;
+  margin: 0px;
+  padding: 50px;
+}
+#name1{
+  height: 419px;
+  background-color: #f3bd00;
+  /* border-top-left-radius: 16px;
+  border-top-right-radius: 16px; */
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: 0px;
+}
+#third{
+height: auto;
+background-color: #f7e296;
+border-top-left-radius: 16px;
+border-top-right-radius: 16px;
+display: flex;
+justify-content: center;
+padding: 50px; 
+margin: 0px; 
+}
+#name3{
+  height: 419px;
+background-color: #f7e296;
+/* border-top-left-radius: 16px;
+border-top-right-radius: 16px; */
+display: flex;
+justify-content: center;
+text-align: center;
+padding: 50px; 
+margin: 0px;
+}
+#semiCircle{
+position: absolute;
+z-index: 1;
+margin-top: -90px;
+}
+
+#holdersName{
+position: absolute;
+z-index: 2;
+width: 1377px;
+height: 346px;
+top: 900px;
+left: 32px;
+padding: 10px;
+gap: 10px;
+}
+#holdersName>div{
+margin-bottom: 50px;
+}
+.others{
+  display: flex;
+  justify-content: space-between;
+}
+#displayResult > h2{
+  display: flex;
+  justify-content: center;
+}
+#displayResult > h3{
+  display: flex;
+  justify-content: center;
+}
+#timer{
+  max-width: fit-content;
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 90%;
+  margin-top: -55px;
+  background-color: #f3bd00;
+  padding: 5px 15px 5px 10px;
+  box-sizing: border-box;
+  border-radius: 50px;
+}
+#timer:hover{
+  box-shadow: 0 0 10px rgb(176, 175, 175);
+}
+#date{
+  font-size: 24px;
+  font-weight: bold;
+  margin-left: 81%;
+  margin-top: -3%;
+  margin-bottom: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

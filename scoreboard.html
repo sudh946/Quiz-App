@@ -3,58 +3,84 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scoreboard</title>
+    <title>Document</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body>
+
+<body>
     <header id="head">
-      <div id="techpathshala-logo">
-        <img src="asset\techpathshala_logo.svg" alt="techpathshala_logo" />
-      </div>
-      <div id="profile-info">
-        <p id="profile-name">sudh</p>
-        <img
-          src="asset\profile logo.jpg"
-          alt="profile-image"
-          height="35px"
-          width="35px"
-        />
-      </div>
-    </header>
+        <div id="techpathshala-logo">
+          <img src="asset\techpathshala_logo.svg" alt="techpathshala_logo" />
+        </div>
+        <div id="profile-info">
+          <p id="profile-name">sudh</p>
+          <img
+            src="asset\profile logo.jpg"
+            alt="profile-image"
+            height="35px"
+            width="35px"
+          />
+        </div>
+      </header>
     <section>
-      <div id="rank">
-        <h2>Wow You Rank 1st</h2>
-        <p>Supporting Text</p>
-      </div>
-     
-        <div id="nd-rank">
-          <div>
-            <img id="ndRank" src="asset\profile logo.jpg" alt="profile-image">
-          </div>
-          <div>
-            <h3>score</h3>
-          </div>
+        <div id="displayResult">
+            <h2>Wow You Rank 1st</h2>
+            <h3>supporting text </h3>
+
         </div>
-        <div id="st-rank">
-          <div>
-            <img src="asset\crown.svg" alt="crown">
-          </div>
-          <div>
-            <img id="stRank" src="asset\profile logo.jpg" alt="profile-image">
-          </div>
-          <div>
-            <h3>score</h3>
-          </div>
+        <div id="rank-holder">
+            <div id="ndPlace">
+                <h1>#2</h1>
+                <img id="ndImage" src="asset\profile logo.jpg" alt="profile-image">
+                <div>
+                    <h2 id="second">score</h2>
+                    <p id="name2">sudhanshu</p>
+                </div>
+            </div>
+            <div id="stPlace">
+                <img id="crown" src="asset\crown.svg" alt="crown">
+                <img id="stImage" src="asset\profile logo.jpg" alt="profile-image">
+                <div>
+                    <h2 id="first">score</h2>
+                    <p id="name1">name</p>
+                </div>
+            </div>
+            <div id="rdPlace">
+                <h1>#3</h1>
+                <img id="rdImage" src="asset\profile logo.jpg" alt="profile-image">
+                <div>
+                    <h2 id="third">score</h2>
+                    <p id="name3">Name</p>
+                </div>
+            </div>
         </div>
-        <div id="rd-rank">
-          <div>
-            <img id="rdRank" src="asset\profile logo.jpg" alt="profile-image">
-          </div>
-          <div>
-            <h3>score</h3>
-          </div>
+        <div>
+            <img src="asset\scorecard.svg" alt="scorecard" id="semiCircle  ">
         </div>
-      
+        <div id="holdersName">
+            <div class="others">
+                <p>
+                    #4. <span id="name4" class="rankspadding ranksFonts"> Name</span>
+                </p>
+                <span id="rank4">Score</span>
+
+            </div>
+            <div class="others">
+                <p>
+                    #5. <span id="name5" class="rankspadding ranksFonts">Name </span>
+                </p>
+                <span id="rank5">Score</span>
+            </div>
+            <div class="others">
+                <p>
+                    #6. <span id="name6" class="rankspadding ranksFonts">Name </span>
+                </p>
+                <span id="rank6">Score</span>
+            </div>
+        </div>
     </section>
-  </body>
+    <script src="main.js"></script>
+    <script>assignRanks()</script>
+</body>
+
 </html>
