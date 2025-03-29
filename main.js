@@ -322,6 +322,9 @@ var quiz = [
   },
 ];
 
+localStorage.setItem("AllQuestions",JSON.stringify(quiz));
+
+
 console.log(quiz);
 // loggedin user ke liye hai
 // window.addEventListener('load',() => {
@@ -335,6 +338,29 @@ console.log(quiz);
 //     }
 // })
 
+// user = JSON.parse(localStorage.getItem("loggedInUser"));
+// document.getElementById("user-name").innerText = user.name;
+
+function logout() {
+  localStorage.removeItem("loggedInUser");
+  window.location = "index.html";
+}
+
+function profile() {
+  let userProfile = document.getElementById("profileSlide");
+  userProfile.classList.toggle("displayProfile");
+}
+function uploadImage() {
+  let userProfile = document.getElementById("userProfile");
+  // let uploadImage = document.getElementById("uploadImage");
+  let imageInput = document.getElementById("imageInput").files.name;
+  let imagePath = "asset/" + imageInput;
+  let stringedImagePath = JSON.stringify(imagePath);
+  localStorage.setItem("loggedInUserImage", stringedImagePath);
+
+  userProfile.src = imagePath;
+}
+
 function questionPage() {
   window.location = "question.html";
 }
@@ -342,7 +368,7 @@ function questionPage() {
 // signin page to login page
 
 function signin() {
-  const fullname = document.getElementById("Full-Name").value;
+  const fullname = document.getElementById("name").value;
   const email = document.getElementById("emailId").value;
   const password = document.getElementById("Passkey").value;
 
@@ -404,30 +430,72 @@ function log() {
     alert("Enter 8 character password");
     return;
   }
+ 
 
-  const userDetail = JSON.parse(localStorage.getItem("user")) || [];
 
-  // Find user with matching email and password
-  const user = userDetail.find(
-    (user) => user.email === email && user.password === password
+
+
+  const userCredentials = JSON.parse(localStorage.getItem("user")) || [];
+  const adminCredentials = JSON.parse(localStorage.getItem("admin")) || [];
+  const userExist = userCredentials.filter(
+    (userCredentials) => userCredentials.email === email
   );
+  const adminExist = adminCredentials.filter(
+      (adminCredentials) => adminCredentials.adminEmail === email
+    );
+    console.log(adminCredentials)
 
-  if (!user) {
-    alert("Invalid email or password");
-    return;
+  if (userExist.length == 1) {
+     if(userExist[0].password == password) {
+      alert("Login Succesfull");
+      let loggedInUser = JSON.stringify(userExist);
+      localStorage.setItem("loggedInUser", loggedInUser);
+
+      window.location = "dashboard.html";
+    } else {
+      alert("Please Enter Valid Email or Password");
+    }
+  } else if (adminExist.length == 1) {
+    console.log(adminExist[0].adminPassword)
+      if (adminExist[0].adminPassword == password) {
+        console.log("HelloBhai")
+        alert("Admin Login Succesfull");
+        let loggedInAdmin = JSON.stringify(adminExist);
+        localStorage.setItem("loggedInAdmin", loggedInAdmin);
+        console.log("HelloBro")
+        window.location = "Admin/index.html";
+
+      }
+    }else{
+      alert("Account doesnt Exist");
+    }
   }
 
-  let loggedInUser = JSON.stringify(user);
-  localStorage.setItem("loggedInUser", loggedInUser);
-
-  // Login successful, redirect to dashboard
-  window.location = "dashboard.html";
-  alert("Logged in successfully");
-}
-
+    
 let profileName = document.getElementById("profile-name");
-let profile = JSON.parse(localStorage.getItem("loggedInUser"));
-profileName.innerText = profile.name;
+let profileText = JSON.parse(localStorage.getItem("loggedInUser"));
+profileName.innerText = profileText[0].name;
+ 
+
+//   const userDetail = JSON.parse(localStorage.getItem("user")) || [];
+
+//   // Find user with matching email and password
+//   const user = userDetail.find(
+//     (user) => user.email === email && user.password === password
+//   );
+
+//   if (!user) {
+//     alert("Invalid email or password");
+//     return;
+//   }
+
+//   let loggedInUser = JSON.stringify(user);
+//   localStorage.setItem("loggedInUser", loggedInUser);
+
+//   // Login successful, redirect to dashboard
+//   window.location = "dashboard.html";
+//   alert("Logged in successfully");
+// }
 
 // question display
 
@@ -447,20 +515,17 @@ function displayCurrentDate() {
 
                       (month < 10 ? '0' + month : month) + '/' + year;
 
-  document.getElementById('date').innerHTML = formattedDate;
+  document.getElementById('date').innerHTML= formattedDate;
 
 }
-
-
-
-displayCurrentDate();
+// displayCurrentDate();
 
 
 
 // Start the timer
 
 let startTime = new Date().getTime();
-
+let timeDifference = 0;
 let timerElement = document.getElementById('timer');
 
 
@@ -469,7 +534,7 @@ function updateTimer() {
 
   let currentTime = new Date().getTime();
 
-  let timeDifference = currentTime - startTime;
+  timeDifference = currentTime - startTime;
 
   let seconds = Math.floor((timeDifference / 1000) % 60);
 
@@ -483,13 +548,20 @@ function updateTimer() {
 
 
 
-  timerElement.innerHTML ='<sub><img src="asset\timeroutline.png" height="30px" width="30px"></sub>'+ minutesDisplay + ":" + secondsDisplay;
+  timerElement.innerHTML ='<sub><img src="asset/timeroutline.png" height="30px" width="30px"></sub>'+ minutesDisplay + ":" + secondsDisplay;
+
+}
+
+let timerInterval ;
+// if (current url is quiz.html then start interval)
+if (window.location.pathname == "/question.html") {
+ timerInterval = setInterval(updateTimer, 1000);
+//  console.log("hello")
+ 
 
 }
 
 
-
-let timerInterval = setInterval(updateTimer, 1000);
 
 let chooseQuestion = [];
 let indexQuestion = 0;
@@ -584,12 +656,20 @@ function choosedAnswer(optionIndex) {
 
 
 function next() {
+  const currentQuestionOptions = document.querySelectorAll(`input[name='option']:checked`);
+
+  // Check if no option is selected for the current question
+  if (currentQuestionOptions.length === 0) {
+    alert("Please select an option to proceed.");
+    return;  // Prevent moving to the next question if no option is selected
+  }
   if (indexQuestion == chooseQuestion.length - 1) {
     Submit();
     
 
     return;
   }
+
   indexQuestion++;
   displayQuestion();
   
@@ -612,6 +692,9 @@ function previous() {
 }
 
 function Submit() {
+  console.log("clearinterval",timerInterval)
+  // clearInterval()
+  // clearInterval(timerInterval)
   let score = 0;
   for (let i = 0; i < chooseQuestion.length; i++) {
     if (chooseQuestion[i].choosedAnswer == chooseQuestion[i].answer) {
@@ -626,14 +709,17 @@ function Submit() {
     questions: chooseQuestion,
     // options: choosedAnswer,
     score: score,
-    name: loggedInUser.name,
-    email: loggedInUser.email,
+    name: loggedInUser[0].name,
+    email: loggedInUser[0].email,
     // quizDateTimer:quizDateTimer,
   };
-
+  
   userTests.push(usertest);
   let stringarr = JSON.stringify(userTests);
   localStorage.setItem("userTests", stringarr);
+
+  
+
 
   window.location = "scoreboard.html";
 }
@@ -699,4 +785,18 @@ function assignRanks() {
   }
   console.log("working")
 
+}
+function positionRank() {
+  let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+  let userTests = JSON.parse(localStorage.getItem("userTests"));
+  userTests.sort((a,b) => b.score - a.score);
+  for(let i = 6; i<userTests; i++){
+    if (loggedInUser.email == userTests[i].email) {
+      console.log(userTests[i].name)
+      document.getElementById("position").innerText = '${i+1}'
+      let name6 = document.getElementById("name6");
+      name6.innerText = userTests[i].name
+      
+    }
+  }
 }

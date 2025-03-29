@@ -18,9 +18,23 @@
           alt="profile-image"
           height="35px"
           width="35px"
+          onclick="profile()"
         />
       </div>
     </header>
+    <div id="profileSlide" class="hide">
+      <!-- <img id="arrowImg" src="assets/68804.png" alt="" /> -->
+      <div class="box">
+        <div class="imageUpload">
+          <input type="file" id="imageInput" accept="image/*" />
+          <button id="uploadImage" onclick="uploadImage()" class="profileButtons">upload Image</button>
+
+        </div>
+        
+        <button class="profileButtons" onclick="logout()">Logout</button>
+      </div>
+    </div>
+
     <section>
       <div>
         <div id="dasboard-page-text">

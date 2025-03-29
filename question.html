@@ -14,6 +14,7 @@
       <div id="profile-info">
         <p id="profile-name">sudh</p>
         <img
+          onclick="profile()"
           src="asset\profile logo.jpg"
           alt="profile-image"
           height="35px"
@@ -21,6 +22,18 @@
         />
       </div>
     </header>
+    <div id="profileSlide" class="hide">
+      <img id="arrowImg" src="assets/68804.png" alt="" />
+      <div class="box">
+        <div class="imageUpload">
+          <input type="file" id="imageInput" accept="image/*" />
+          <button id="uploadImage" onclick="uploadImage()" class="profileButtons">upload Image</button>
+
+        </div>
+        
+        <button class="profileButtons" onclick="logout()">Logout</button>
+      </div>
+    </div>
     <section>
       <div id="question-counter">
         <h2>Question <span id="count">1</span> of 10</h2>
@@ -29,7 +42,7 @@
 
       <div id="timer">
         <sub
-          ><img src="asset\timeroutline.png" height="30px" width="30px" />
+          ><img  src="asset\timeroutline.png" height="30px" width="30px" />
           </sub>00:00
       </div>
       <div id="progress-bar">
